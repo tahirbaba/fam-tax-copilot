@@ -1,0 +1,46 @@
+pack: arithmetic
+title_en: Arithmetic integrity (recomputed by code, never by AI)
+title_ar: سلامة العمليات الحسابية (يعاد احتسابها برمجياً وليس بالذكاء الاصطناعي)
+version: "2026.11"
+reviewed_by: null
+reviewed_on: null
+rules:
+  - id: MATH-001
+    check: line_math
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Line total does not match quantity x unit price
+    title_ar: إجمالي البند لا يساوي الكمية × سعر الوحدة
+    message_en: 'Line {line}: {quantity} x {unit_price} = {expected}, but the invoice shows {found}.'
+    message_ar: 'البند {line}: {quantity} × {unit_price} = {expected}، بينما تُظهر الفاتورة {found}.'
+    citation: null
+
+  - id: MATH-002
+    check: lines_sum_subtotal
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Line items do not add up to the subtotal
+    title_ar: مجموع البنود لا يساوي المجموع الفرعي
+    message_en: 'Line items add up to {expected}, but the subtotal shows {found}.'
+    message_ar: 'مجموع البنود {expected}، بينما يُظهر المجموع الفرعي {found}.'
+    citation: null
+
+  - id: MATH-003
+    check: vat_math
+    severity: error
+    impact: input_vat_at_risk
+    title_en: VAT amount is wrong
+    title_ar: مبلغ الضريبة غير صحيح
+    message_en: '{rate}% of {base} = {expected}, but the invoice shows VAT of {found} (difference {diff}).'
+    message_ar: '{rate}٪ من {base} = {expected}، بينما تُظهر الفاتورة ضريبة بقيمة {found} (الفرق {diff}).'
+    citation: VAT Executive Regulation, Art. 59(1) (tax amount payable)
+
+  - id: MATH-004
+    check: total_math
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Grand total does not add up
+    title_ar: الإجمالي النهائي غير صحيح
+    message_en: 'Subtotal {subtotal} - discount {discount} + VAT {vat} = {expected}, but the total shows {found}.'
+    message_ar: 'المجموع الفرعي {subtotal} - الخصم {discount} + الضريبة {vat} = {expected}، بينما يُظهر الإجمالي {found}.'
+    citation: null

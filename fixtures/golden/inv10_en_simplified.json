@@ -1,0 +1,142 @@
+{
+  "file": "inv10_en_simplified.pdf",
+  "sha256": "ba6cbcd901a1648a56d543865608f6fb73ecfa969673b009dfc64ab5460bde4a",
+  "note": "Simplified tax invoice under AED 10,000 - valid for VAT, but lacks buyer data for e-invoicing.",
+  "expected": {
+    "status": "green",
+    "findings": [
+      "EINV-002",
+      "EINV-003",
+      "EINV-004"
+    ],
+    "einvoice_ready": false
+  },
+  "truth": {
+    "document_title": {
+      "value": "TAX INVOICE",
+      "evidence": "TAX INVOICE"
+    },
+    "invoice_number": {
+      "value": "AMB-77120",
+      "evidence": "Invoice No: AMB-77120"
+    },
+    "issue_date": {
+      "value": "25/10/2026",
+      "evidence": "Invoice Date: 25/10/2026"
+    },
+    "supply_date": {
+      "value": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": "AED",
+      "evidence": "Currency: AED"
+    },
+    "supplier_name": {
+      "value": "Al Manara Bakery",
+      "evidence": "Al Manara Bakery"
+    },
+    "supplier_address": {
+      "value": "Shop 3, Al Satwa Road, Dubai, UAE",
+      "evidence": "Shop 3, Al Satwa Road, Dubai, UAE"
+    },
+    "supplier_trn": {
+      "value": "100223344556677",
+      "evidence": "TRN: 100223344556677"
+    },
+    "customer_name": {
+      "value": null,
+      "evidence": null
+    },
+    "customer_address": {
+      "value": null,
+      "evidence": null
+    },
+    "customer_trn": {
+      "value": null,
+      "evidence": null
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Arabic bread (pack)",
+          "evidence": "Arabic bread (pack)"
+        },
+        "quantity": {
+          "value": "200",
+          "evidence": "200"
+        },
+        "unit_price": {
+          "value": "1.50",
+          "evidence": "1.50"
+        },
+        "net_amount": {
+          "value": "300.00",
+          "evidence": "300.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "15.00",
+          "evidence": "15.00"
+        }
+      },
+      {
+        "description": {
+          "value": "Butter croissants",
+          "evidence": "Butter croissants"
+        },
+        "quantity": {
+          "value": "120",
+          "evidence": "120"
+        },
+        "unit_price": {
+          "value": "3.00",
+          "evidence": "3.00"
+        },
+        "net_amount": {
+          "value": "360.00",
+          "evidence": "360.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "18.00",
+          "evidence": "18.00"
+        }
+      }
+    ],
+    "subtotal": {
+      "value": "660.00",
+      "evidence": "Subtotal 660.00"
+    },
+    "discount": {
+      "value": null,
+      "evidence": null
+    },
+    "vat_rate": {
+      "value": "5%",
+      "evidence": "VAT 5%"
+    },
+    "vat_amount": {
+      "value": "33.00",
+      "evidence": "33.00"
+    },
+    "total_amount": {
+      "value": "693.00",
+      "evidence": "Total Amount Due 693.00"
+    },
+    "vat_amount_aed": {
+      "value": null,
+      "evidence": null
+    },
+    "exchange_rate": {
+      "value": null,
+      "evidence": null
+    }
+  }
+}

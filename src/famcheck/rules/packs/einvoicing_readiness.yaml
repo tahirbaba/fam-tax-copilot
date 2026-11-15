@@ -1,0 +1,84 @@
+pack: einvoicing_readiness
+title_en: UAE e-invoicing data readiness (indicative)
+title_ar: جاهزية البيانات للفوترة الإلكترونية في الإمارات (استرشادي)
+version: "2026.11-draft"
+# INDICATIVE: checks whether the data needed to issue a structured (PINT AE / Peppol)
+# e-invoice is present on today's invoices. Must be mapped by FAM against the
+# official FTA / MoF e-invoicing data dictionary before client use.
+reviewed_by: null
+reviewed_on: null
+rules:
+  - id: EINV-001
+    check: field_present
+    params: {field: supplier_trn}
+    severity: warning
+    impact: einvoice_gap
+    title_en: Seller TRN not captured
+    title_ar: الرقم الضريبي للبائع غير متوفر
+    message_en: A structured e-invoice must carry the seller's TRN.
+    message_ar: يجب أن تتضمن الفاتورة الإلكترونية المهيكلة الرقم الضريبي للبائع.
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-002
+    check: field_present
+    params: {field: customer_trn}
+    severity: warning
+    impact: einvoice_gap
+    title_en: Buyer TRN not captured
+    title_ar: الرقم الضريبي للمشتري غير متوفر
+    message_en: B2B e-invoices identify the buyer by TRN / Peppol endpoint. This invoice has no buyer TRN.
+    message_ar: تُحدَّد هوية المشتري في الفواتير الإلكترونية بين الشركات بالرقم الضريبي أو عنوان Peppol، وهذه الفاتورة لا تحتوي على الرقم الضريبي للمشتري.
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-003
+    check: field_present
+    params: {field: customer_address}
+    severity: warning
+    impact: einvoice_gap
+    title_en: Buyer address not captured
+    title_ar: عنوان المشتري غير متوفر
+    message_en: The buyer's address is required as structured data.
+    message_ar: عنوان المشتري مطلوب كبيانات مهيكلة.
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-004
+    check: field_present
+    params: {field: customer_name}
+    severity: warning
+    impact: einvoice_gap
+    title_en: Buyer name not captured
+    title_ar: اسم المشتري غير متوفر
+    message_en: The buyer's legal name is required as structured data.
+    message_ar: الاسم القانوني للمشتري مطلوب كبيانات مهيكلة.
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-005
+    check: currency_is_iso
+    severity: warning
+    impact: einvoice_gap
+    title_en: Currency not identifiable
+    title_ar: تعذّر تحديد العملة
+    message_en: 'Currency "{found}" could not be mapped to an ISO 4217 code (e.g. AED), which e-invoices require.'
+    message_ar: 'تعذّر ربط العملة "{found}" برمز ISO 4217 (مثل AED) المطلوب في الفواتير الإلكترونية.'
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-006
+    check: lines_structured
+    severity: warning
+    impact: einvoice_gap
+    title_en: Line items not fully structured
+    title_ar: البنود غير مهيكلة بالكامل
+    message_en: 'Line {line} is missing: {missing}. E-invoice lines need quantity, unit price, net amount and VAT rate.'
+    message_ar: 'البند {line} ينقصه: {missing}. تحتاج بنود الفاتورة الإلكترونية إلى الكمية وسعر الوحدة والمبلغ الصافي ونسبة الضريبة.'
+    citation: UAE e-invoicing data model (PINT AE) - indicative
+
+  - id: EINV-007
+    check: field_present
+    params: {field: supplier_address}
+    severity: warning
+    impact: einvoice_gap
+    title_en: Seller address not captured
+    title_ar: عنوان البائع غير متوفر
+    message_en: The seller's address is required as structured data.
+    message_ar: عنوان البائع مطلوب كبيانات مهيكلة.
+    citation: UAE e-invoicing data model (PINT AE) - indicative

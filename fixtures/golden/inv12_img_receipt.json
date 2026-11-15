@@ -1,0 +1,116 @@
+{
+  "file": "inv12_img_receipt.png",
+  "sha256": "14b3f3b9d25ccee028329444afded41716be208cb881aa02573d74b2114fc3dc",
+  "note": "Photo of a receipt - no text layer, so it is never auto-approved.",
+  "expected": {
+    "status": "amber",
+    "findings": [
+      "EINV-002",
+      "EINV-003",
+      "GUARD-002"
+    ],
+    "einvoice_ready": false
+  },
+  "truth": {
+    "document_title": {
+      "value": "TAX INVOICE",
+      "evidence": "TAX INVOICE"
+    },
+    "invoice_number": {
+      "value": "QG-5521",
+      "evidence": "Invoice No: QG-5521"
+    },
+    "issue_date": {
+      "value": "14/10/2026",
+      "evidence": "Invoice Date: 14/10/2026"
+    },
+    "supply_date": {
+      "value": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": "AED",
+      "evidence": "Currency: AED"
+    },
+    "supplier_name": {
+      "value": "Quick Gas Cylinders Trading",
+      "evidence": "Quick Gas Cylinders Trading"
+    },
+    "supplier_address": {
+      "value": "Al Quoz 1, Dubai, UAE",
+      "evidence": "Al Quoz 1, Dubai, UAE"
+    },
+    "supplier_trn": {
+      "value": "100445566778899",
+      "evidence": "TRN: 100445566778899"
+    },
+    "customer_name": {
+      "value": "Al Noor Restaurants LLC",
+      "evidence": "Al Noor Restaurants LLC"
+    },
+    "customer_address": {
+      "value": null,
+      "evidence": null
+    },
+    "customer_trn": {
+      "value": null,
+      "evidence": null
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "LPG cylinder refill",
+          "evidence": "LPG cylinder refill"
+        },
+        "quantity": {
+          "value": "10",
+          "evidence": "10"
+        },
+        "unit_price": {
+          "value": "85.00",
+          "evidence": "85.00"
+        },
+        "net_amount": {
+          "value": "850.00",
+          "evidence": "850.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "42.50",
+          "evidence": "42.50"
+        }
+      }
+    ],
+    "subtotal": {
+      "value": "850.00",
+      "evidence": "Subtotal 850.00"
+    },
+    "discount": {
+      "value": null,
+      "evidence": null
+    },
+    "vat_rate": {
+      "value": "5%",
+      "evidence": "VAT 5%"
+    },
+    "vat_amount": {
+      "value": "42.50",
+      "evidence": "42.50"
+    },
+    "total_amount": {
+      "value": "892.50",
+      "evidence": "Total Amount Due 892.50"
+    },
+    "vat_amount_aed": {
+      "value": null,
+      "evidence": null
+    },
+    "exchange_rate": {
+      "value": null,
+      "evidence": null
+    }
+  }
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "inv01_en_valid",
+    "file": "inv01_en_valid.pdf",
+    "status": "green",
+    "note": "Clean English tax invoice."
+  },
+  {
+    "id": "inv02_ar_valid",
+    "file": "inv02_ar_valid.pdf",
+    "status": "green",
+    "note": "Arabic tax invoice; supplier TRN printed in Arabic-Indic digits."
+  },
+  {
+    "id": "inv03_bi_valid",
+    "file": "inv03_bi_valid.pdf",
+    "status": "green",
+    "note": "Bilingual invoice above AED 10,000 - full tax invoice requirements apply and are met."
+  },
+  {
+    "id": "inv04_en_vat_wrong",
+    "file": "inv04_en_vat_wrong.pdf",
+    "status": "red",
+    "note": "VAT printed as 125.00; 5% of 2,400.00 is 120.00."
+  },
+  {
+    "id": "inv05_en_no_tax_title",
+    "file": "inv05_en_no_tax_title.pdf",
+    "status": "red",
+    "note": "Titled \"INVOICE\", not \"Tax Invoice\"."
+  },
+  {
+    "id": "inv06_en_bad_trn",
+    "file": "inv06_en_bad_trn.pdf",
+    "status": "red",
+    "note": "Supplier TRN has 14 digits."
+  },
+  {
+    "id": "inv07_ar_missing_customer_trn",
+    "file": "inv07_ar_missing_customer_trn.pdf",
+    "status": "red",
+    "note": "Arabic invoice above AED 10,000 without the customer's TRN."
+  },
+  {
+    "id": "inv08_en_usd_no_aed",
+    "file": "inv08_en_usd_no_aed.pdf",
+    "status": "red",
+    "note": "Invoice in USD without the VAT amount in AED."
+  },
+  {
+    "id": "inv09_en_duplicate",
+    "file": "inv09_en_duplicate.pdf",
+    "status": "red",
+    "note": "Same supplier TRN and invoice number as inv01 (re-sent copy)."
+  },
+  {
+    "id": "inv10_en_simplified",
+    "file": "inv10_en_simplified.pdf",
+    "status": "green",
+    "note": "Simplified tax invoice under AED 10,000 - valid for VAT, but lacks buyer data for e-invoicing."
+  },
+  {
+    "id": "inv11_en_wrong_customer",
+    "file": "inv11_en_wrong_customer.pdf",
+    "status": "red",
+    "note": "Addressed to a different legal entity (different TRN)."
+  },
+  {
+    "id": "inv12_img_receipt",
+    "file": "inv12_img_receipt.png",
+    "status": "amber",
+    "note": "Photo of a receipt - no text layer, so it is never auto-approved."
+  },
+  {
+    "id": "inv13_en_wrong_rate",
+    "file": "inv13_en_wrong_rate.pdf",
+    "status": "red",
+    "note": "VAT charged at 15% (not a UAE rate)."
+  },
+  {
+    "id": "inv14_en_misread_guardrail",
+    "file": "inv14_en_misread_guardrail.pdf",
+    "status": "amber",
+    "note": "SIMULATED AI ERROR: the cached extraction misreads the supplier TRN. The evidence check cannot find that TRN in the document, discards it and routes the invoice to a human."
+  }
+]

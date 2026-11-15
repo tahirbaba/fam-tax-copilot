@@ -1,0 +1,134 @@
+{
+  "file_name": "inv13_en_wrong_rate.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE",
+        "evidence": "TAX INVOICE"
+      },
+      "invoice_number": {
+        "value": "SSI-2026-208",
+        "evidence": "Invoice No: SSI-2026-208"
+      },
+      "issue_date": {
+        "value": "09/10/2026",
+        "evidence": "Invoice Date: 09/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency: AED"
+      },
+      "supplier_name": {
+        "value": "Saffron & Spice Imports LLC",
+        "evidence": "Saffron & Spice Imports LLC"
+      },
+      "supplier_address": {
+        "value": "Spice Souk, Deira, Dubai, UAE",
+        "evidence": "Spice Souk, Deira, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "100556677889900",
+        "evidence": "TRN: 100556677889900"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Saffron (100 g tin)",
+            "evidence": "Saffron (100 g tin)"
+          },
+          "quantity": {
+            "value": "2",
+            "evidence": "2"
+          },
+          "unit_price": {
+            "value": "950.00",
+            "evidence": "950.00"
+          },
+          "net_amount": {
+            "value": "1,900.00",
+            "evidence": "1,900.00"
+          },
+          "vat_rate": {
+            "value": "15%",
+            "evidence": "15%"
+          },
+          "vat_amount": {
+            "value": "285.00",
+            "evidence": "285.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Green cardamom (kg)",
+            "evidence": "Green cardamom (kg)"
+          },
+          "quantity": {
+            "value": "10",
+            "evidence": "10"
+          },
+          "unit_price": {
+            "value": "85.00",
+            "evidence": "85.00"
+          },
+          "net_amount": {
+            "value": "850.00",
+            "evidence": "850.00"
+          },
+          "vat_rate": {
+            "value": "15%",
+            "evidence": "15%"
+          },
+          "vat_amount": {
+            "value": "127.50",
+            "evidence": "127.50"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "2,750.00",
+        "evidence": "Subtotal 2,750.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "15%",
+        "evidence": "VAT 15%"
+      },
+      "vat_amount": {
+        "value": "412.50",
+        "evidence": "412.50"
+      },
+      "total_amount": {
+        "value": "3,162.50",
+        "evidence": "Total Amount Due 3,162.50"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

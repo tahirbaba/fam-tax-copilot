@@ -1,0 +1,217 @@
+pack: vat_tax_invoice
+title_en: UAE VAT - tax invoice requirements (input VAT recovery)
+title_ar: متطلبات الفاتورة الضريبية - ضريبة القيمة المضافة (استرداد ضريبة المدخلات)
+version: "2026.11-draft"
+# Citations are drafted by the tool author and MUST be confirmed by FAM's tax team
+# before client use. See docs/RULES_SIGNOFF.md.
+reviewed_by: null
+reviewed_on: null
+rules:
+  - id: VAT-001
+    check: title_is_tax_invoice
+    severity: error
+    impact: input_vat_at_risk
+    field: document_title
+    title_en: Document is not titled "Tax Invoice"
+    title_ar: المستند لا يحمل عنوان "فاتورة ضريبية"
+    message_en: 'The document heading is "{found}". Input VAT should only be recovered on a document clearly titled "Tax Invoice".'
+    message_ar: 'عنوان المستند هو "{found}". لا يجوز استرداد ضريبة المدخلات إلا بموجب مستند بعنوان "فاتورة ضريبية" بشكل واضح.'
+    citation: VAT Executive Regulation (Cabinet Decision No. 52 of 2017), Art. 59(1); Federal Decree-Law No. 8 of 2017, Art. 55
+
+  - id: VAT-002
+    check: field_present
+    params: {field: supplier_name}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Supplier name missing
+    title_ar: اسم المورد غير موجود
+    message_en: The supplier's name is not shown on the invoice.
+    message_ar: اسم المورد غير ظاهر في الفاتورة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-003
+    check: field_present
+    params: {field: supplier_address}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Supplier address missing
+    title_ar: عنوان المورد غير موجود
+    message_en: The supplier's address is not shown on the invoice.
+    message_ar: عنوان المورد غير ظاهر في الفاتورة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-004
+    check: field_present
+    params: {field: supplier_trn}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Supplier TRN missing
+    title_ar: الرقم الضريبي للمورد غير موجود
+    message_en: The supplier's Tax Registration Number (TRN) is not shown. Without it the input VAT is not recoverable.
+    message_ar: الرقم الضريبي (TRN) للمورد غير ظاهر، وبدونه لا يمكن استرداد ضريبة المدخلات.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-005
+    check: trn_format
+    params: {field: supplier_trn}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Supplier TRN is not 15 digits
+    title_ar: الرقم الضريبي للمورد لا يتكون من 15 رقماً
+    message_en: 'Supplier TRN "{found}" has {length} digits; a UAE TRN has 15. Check it on the FTA TRN verification service.'
+    message_ar: 'الرقم الضريبي للمورد "{found}" يتكون من {length} أرقام، بينما يتكون الرقم الضريبي الإماراتي من 15 رقماً. يرجى التحقق منه عبر خدمة التحقق من الرقم الضريبي لدى الهيئة الاتحادية للضرائب.'
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-006
+    check: field_present
+    params: {field: invoice_number}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Invoice number missing
+    title_ar: رقم الفاتورة غير موجود
+    message_en: No sequential invoice number is shown.
+    message_ar: لا يظهر رقم تسلسلي للفاتورة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-007
+    check: field_present
+    params: {field: issue_date}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Date of issue missing
+    title_ar: تاريخ الإصدار غير موجود
+    message_en: The invoice has no date of issue.
+    message_ar: لا يوجد تاريخ إصدار على الفاتورة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-008
+    check: lines_present
+    severity: error
+    impact: input_vat_at_risk
+    title_en: No description of goods or services
+    title_ar: لا يوجد وصف للسلع أو الخدمات
+    message_en: No line items describing the goods or services supplied were found.
+    message_ar: لم يتم العثور على بنود تصف السلع أو الخدمات الموردة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-009
+    check: field_present
+    params: {field: vat_amount}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: VAT amount not shown
+    title_ar: مبلغ الضريبة غير ظاهر
+    message_en: The amount of VAT charged is not printed on the invoice.
+    message_ar: مبلغ ضريبة القيمة المضافة المحتسبة غير مطبوع على الفاتورة.
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-010
+    check: vat_rate_valid
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Invalid UAE VAT rate
+    title_ar: نسبة ضريبة غير صحيحة في الإمارات
+    message_en: 'VAT is charged at {found}%. UAE VAT is 5% (standard) or 0% (zero-rated). Excess VAT charged is not recoverable as input tax.'
+    message_ar: 'تم احتساب الضريبة بنسبة {found}٪. نسبة ضريبة القيمة المضافة في الإمارات هي 5٪ (أساسية) أو 0٪ (صفرية). الضريبة الزائدة غير قابلة للاسترداد كضريبة مدخلات.'
+    citation: Federal Decree-Law No. 8 of 2017, Art. 3 (standard rate 5%)
+
+  # ---- applies only when a FULL tax invoice is required (recipient registered and > AED 10,000) ----
+  - id: VAT-011
+    check: field_present
+    params: {field: customer_name}
+    when: full_invoice_required
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Customer name missing (full tax invoice)
+    title_ar: اسم العميل غير موجود (فاتورة ضريبية كاملة)
+    message_en: Invoices above AED 10,000 issued to a registered business must show the recipient's name.
+    message_ar: يجب أن تظهر الفواتير التي تتجاوز 10,000 درهم والصادرة لمنشأة مسجلة اسم المتلقي.
+    citation: VAT Executive Regulation, Art. 59(1) and 59(2)
+
+  - id: VAT-012
+    check: field_present
+    params: {field: customer_address}
+    when: full_invoice_required
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Customer address missing (full tax invoice)
+    title_ar: عنوان العميل غير موجود (فاتورة ضريبية كاملة)
+    message_en: Invoices above AED 10,000 issued to a registered business must show the recipient's address.
+    message_ar: يجب أن تظهر الفواتير التي تتجاوز 10,000 درهم والصادرة لمنشأة مسجلة عنوان المتلقي.
+    citation: VAT Executive Regulation, Art. 59(1) and 59(2)
+
+  - id: VAT-013
+    check: field_present
+    params: {field: customer_trn}
+    when: full_invoice_required
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Customer TRN missing (full tax invoice)
+    title_ar: الرقم الضريبي للعميل غير موجود (فاتورة ضريبية كاملة)
+    message_en: Invoices above AED 10,000 issued to a registered business must show the recipient's TRN.
+    message_ar: يجب أن تظهر الفواتير التي تتجاوز 10,000 درهم والصادرة لمنشأة مسجلة الرقم الضريبي للمتلقي.
+    citation: VAT Executive Regulation, Art. 59(1) and 59(2)
+
+  - id: VAT-014
+    check: trn_format
+    params: {field: customer_trn}
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Customer TRN is not 15 digits
+    title_ar: الرقم الضريبي للعميل لا يتكون من 15 رقماً
+    message_en: 'Customer TRN "{found}" has {length} digits; a UAE TRN has 15.'
+    message_ar: 'الرقم الضريبي للعميل "{found}" يتكون من {length} أرقام، بينما يتكون الرقم الضريبي الإماراتي من 15 رقماً.'
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-015
+    check: customer_is_client
+    when: client_trn_given
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Invoice is addressed to a different company
+    title_ar: الفاتورة صادرة باسم شركة أخرى
+    message_en: 'The invoice is addressed to TRN {found}, not to the client (TRN {expected}). The client cannot recover VAT on another business''s invoice.'
+    message_ar: 'الفاتورة صادرة للرقم الضريبي {found} وليس للعميل (الرقم الضريبي {expected}). لا يمكن للعميل استرداد ضريبة على فاتورة صادرة لمنشأة أخرى.'
+    citation: Federal Decree-Law No. 8 of 2017, Art. 54-55 (input tax of the taxable person)
+
+  - id: VAT-016
+    check: foreign_currency_has_aed_vat
+    when: foreign_currency
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Foreign-currency invoice without VAT in AED
+    title_ar: فاتورة بعملة أجنبية بدون مبلغ الضريبة بالدرهم
+    message_en: 'The invoice is in {found} but does not show the VAT payable in AED.'
+    message_ar: 'الفاتورة بعملة {found} ولكنها لا تُظهر مبلغ الضريبة المستحقة بالدرهم الإماراتي.'
+    citation: VAT Executive Regulation, Art. 59(1)
+
+  - id: VAT-017
+    check: supplier_not_customer
+    severity: warning
+    impact: data_quality
+    title_en: Supplier and customer TRN are the same
+    title_ar: الرقم الضريبي للمورد والعميل متطابقان
+    message_en: Supplier and customer show the same TRN ({found}). Check whether this is an internal document.
+    message_ar: يظهر الرقم الضريبي نفسه ({found}) للمورد والعميل. يرجى التحقق مما إذا كان المستند داخلياً.
+    citation: null
+
+  - id: VAT-018
+    check: date_not_future
+    severity: warning
+    impact: data_quality
+    title_en: Invoice date is in the future
+    title_ar: تاريخ الفاتورة في المستقبل
+    message_en: 'Issue date {found} is after today ({expected}).'
+    message_ar: 'تاريخ الإصدار {found} لاحق لتاريخ اليوم ({expected}).'
+    citation: null
+
+  - id: VAT-019
+    check: trn_prefix
+    params: {field: supplier_trn}
+    severity: info
+    impact: data_quality
+    title_en: Unusual TRN prefix
+    title_ar: بادئة رقم ضريبي غير معتادة
+    message_en: 'Supplier TRN {found} does not start with "100" as UAE TRNs normally do - verify on the FTA portal.'
+    message_ar: 'الرقم الضريبي للمورد {found} لا يبدأ بـ "100" كما هو معتاد في الأرقام الضريبية الإماراتية - يرجى التحقق عبر بوابة الهيئة.'
+    citation: null

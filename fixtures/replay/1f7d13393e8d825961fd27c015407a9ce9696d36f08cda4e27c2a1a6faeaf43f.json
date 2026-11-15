@@ -1,0 +1,134 @@
+{
+  "file_name": "inv06_en_bad_trn.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE",
+        "evidence": "TAX INVOICE"
+      },
+      "invoice_number": {
+        "value": "DMT-55410",
+        "evidence": "Invoice No: DMT-55410"
+      },
+      "issue_date": {
+        "value": "10/10/2026",
+        "evidence": "Invoice Date: 10/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency: AED"
+      },
+      "supplier_name": {
+        "value": "Dubai Meat Traders LLC",
+        "evidence": "Dubai Meat Traders LLC"
+      },
+      "supplier_address": {
+        "value": "Al Ras Area, Deira, Dubai, UAE",
+        "evidence": "Al Ras Area, Deira, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "10089012345678",
+        "evidence": "TRN: 10089012345678"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Lamb leg (kg)",
+            "evidence": "Lamb leg (kg)"
+          },
+          "quantity": {
+            "value": "80",
+            "evidence": "80"
+          },
+          "unit_price": {
+            "value": "38.00",
+            "evidence": "38.00"
+          },
+          "net_amount": {
+            "value": "3,040.00",
+            "evidence": "3,040.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "152.00",
+            "evidence": "152.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Chicken breast (kg)",
+            "evidence": "Chicken breast (kg)"
+          },
+          "quantity": {
+            "value": "150",
+            "evidence": "150"
+          },
+          "unit_price": {
+            "value": "21.50",
+            "evidence": "21.50"
+          },
+          "net_amount": {
+            "value": "3,225.00",
+            "evidence": "3,225.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "161.25",
+            "evidence": "161.25"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "6,265.00",
+        "evidence": "Subtotal 6,265.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "VAT 5%"
+      },
+      "vat_amount": {
+        "value": "313.25",
+        "evidence": "313.25"
+      },
+      "total_amount": {
+        "value": "6,578.25",
+        "evidence": "Total Amount Due 6,578.25"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ t.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ t.app_name }}{% endblock %}</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="/"><span class="mark">FAM</span> {{ t.app_name }}</a>
+    <nav>
+      <a href="/rules">{{ t.rules_title }}</a>
+      <a class="lang" href="?lang={{ t.other_lang }}">{{ t.lang_toggle }}</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{% block content %}{% endblock %}
+</main>
+<footer class="wrap foot">{{ t.processing_note }}</footer>
+</body>
+</html>

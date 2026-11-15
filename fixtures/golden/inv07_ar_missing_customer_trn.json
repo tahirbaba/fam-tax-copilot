@@ -1,0 +1,141 @@
+{
+  "file": "inv07_ar_missing_customer_trn.pdf",
+  "sha256": "8f8eaf9596c33f63c96ba48777815953256bbd5987de2154f46737bbdc75c628",
+  "note": "Arabic invoice above AED 10,000 without the customer's TRN.",
+  "expected": {
+    "status": "red",
+    "findings": [
+      "EINV-002",
+      "VAT-013"
+    ],
+    "einvoice_ready": false
+  },
+  "truth": {
+    "document_title": {
+      "value": "فاتورة ضريبية",
+      "evidence": "فاتورة ضريبية"
+    },
+    "invoice_number": {
+      "value": "WH-3391",
+      "evidence": "رقم الفاتورة: WH-3391"
+    },
+    "issue_date": {
+      "value": "22/10/2026",
+      "evidence": "تاريخ الفاتورة: 22/10/2026"
+    },
+    "supply_date": {
+      "value": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": "درهم",
+      "evidence": "العملة: درهم"
+    },
+    "supplier_name": {
+      "value": "مؤسسة الواحة للتجهيزات الفندقية",
+      "evidence": "مؤسسة الواحة للتجهيزات الفندقية"
+    },
+    "supplier_address": {
+      "value": "القوز الصناعية 4، دبي، الإمارات العربية المتحدة",
+      "evidence": "القوز الصناعية 4، دبي، الإمارات العربية المتحدة"
+    },
+    "supplier_trn": {
+      "value": "100901234567890",
+      "evidence": "الرقم الضريبي: 100901234567890"
+    },
+    "customer_name": {
+      "value": "مطاعم النور ذ.م.م",
+      "evidence": "مطاعم النور ذ.م.م"
+    },
+    "customer_address": {
+      "value": "محل 12، شارع الوصل، جميرا 1، دبي، الإمارات العربية المتحدة",
+      "evidence": "محل 12، شارع الوصل، جميرا 1، دبي، الإمارات العربية المتحدة"
+    },
+    "customer_trn": {
+      "value": null,
+      "evidence": null
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "أطباق خزفية",
+          "evidence": "أطباق خزفية"
+        },
+        "quantity": {
+          "value": "400",
+          "evidence": "400"
+        },
+        "unit_price": {
+          "value": "22.00",
+          "evidence": "22.00"
+        },
+        "net_amount": {
+          "value": "8,800.00",
+          "evidence": "8,800.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "440.00",
+          "evidence": "440.00"
+        }
+      },
+      {
+        "description": {
+          "value": "أكواب زجاجية",
+          "evidence": "أكواب زجاجية"
+        },
+        "quantity": {
+          "value": "600",
+          "evidence": "600"
+        },
+        "unit_price": {
+          "value": "6.50",
+          "evidence": "6.50"
+        },
+        "net_amount": {
+          "value": "3,900.00",
+          "evidence": "3,900.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "195.00",
+          "evidence": "195.00"
+        }
+      }
+    ],
+    "subtotal": {
+      "value": "12,700.00",
+      "evidence": "المجموع الفرعي 12,700.00"
+    },
+    "discount": {
+      "value": null,
+      "evidence": null
+    },
+    "vat_rate": {
+      "value": "5%",
+      "evidence": "ضريبة القيمة المضافة 5%"
+    },
+    "vat_amount": {
+      "value": "635.00",
+      "evidence": "635.00"
+    },
+    "total_amount": {
+      "value": "13,335.00",
+      "evidence": "المبلغ الإجمالي المستحق 13,335.00"
+    },
+    "vat_amount_aed": {
+      "value": null,
+      "evidence": null
+    },
+    "exchange_rate": {
+      "value": null,
+      "evidence": null
+    }
+  }
+}

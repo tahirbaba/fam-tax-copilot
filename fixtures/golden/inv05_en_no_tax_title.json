@@ -1,0 +1,140 @@
+{
+  "file": "inv05_en_no_tax_title.pdf",
+  "sha256": "0c5e2b79292ec081ef4480be811aa4cec33399b907ece3b16c55275c39a37726",
+  "note": "Titled \"INVOICE\", not \"Tax Invoice\".",
+  "expected": {
+    "status": "red",
+    "findings": [
+      "VAT-001"
+    ],
+    "einvoice_ready": false
+  },
+  "truth": {
+    "document_title": {
+      "value": "INVOICE",
+      "evidence": "INVOICE"
+    },
+    "invoice_number": {
+      "value": "SCS-1022",
+      "evidence": "Invoice No: SCS-1022"
+    },
+    "issue_date": {
+      "value": "20/10/2026",
+      "evidence": "Invoice Date: 20/10/2026"
+    },
+    "supply_date": {
+      "value": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": "AED",
+      "evidence": "Currency: AED"
+    },
+    "supplier_name": {
+      "value": "Sparkle Cleaning Services LLC",
+      "evidence": "Sparkle Cleaning Services LLC"
+    },
+    "supplier_address": {
+      "value": "Office 305, Al Barsha Business Centre, Dubai, UAE",
+      "evidence": "Office 305, Al Barsha Business Centre, Dubai, UAE"
+    },
+    "supplier_trn": {
+      "value": "100789012345678",
+      "evidence": "TRN: 100789012345678"
+    },
+    "customer_name": {
+      "value": "Al Noor Restaurants LLC",
+      "evidence": "Al Noor Restaurants LLC"
+    },
+    "customer_address": {
+      "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+      "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+    },
+    "customer_trn": {
+      "value": "100345678900003",
+      "evidence": "TRN: 100345678900003"
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Deep kitchen cleaning",
+          "evidence": "Deep kitchen cleaning"
+        },
+        "quantity": {
+          "value": "1",
+          "evidence": "1"
+        },
+        "unit_price": {
+          "value": "1,800.00",
+          "evidence": "1,800.00"
+        },
+        "net_amount": {
+          "value": "1,800.00",
+          "evidence": "1,800.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "90.00",
+          "evidence": "90.00"
+        }
+      },
+      {
+        "description": {
+          "value": "Grease trap service",
+          "evidence": "Grease trap service"
+        },
+        "quantity": {
+          "value": "2",
+          "evidence": "2"
+        },
+        "unit_price": {
+          "value": "350.00",
+          "evidence": "350.00"
+        },
+        "net_amount": {
+          "value": "700.00",
+          "evidence": "700.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "35.00",
+          "evidence": "35.00"
+        }
+      }
+    ],
+    "subtotal": {
+      "value": "2,500.00",
+      "evidence": "Subtotal 2,500.00"
+    },
+    "discount": {
+      "value": null,
+      "evidence": null
+    },
+    "vat_rate": {
+      "value": "5%",
+      "evidence": "VAT 5%"
+    },
+    "vat_amount": {
+      "value": "125.00",
+      "evidence": "125.00"
+    },
+    "total_amount": {
+      "value": "2,625.00",
+      "evidence": "Total Amount Due 2,625.00"
+    },
+    "vat_amount_aed": {
+      "value": null,
+      "evidence": null
+    },
+    "exchange_rate": {
+      "value": null,
+      "evidence": null
+    }
+  }
+}

@@ -1,0 +1,46 @@
+pack: review_guardrails
+title_en: Human-review guardrails (the tool never guesses)
+title_ar: ضوابط المراجعة البشرية (الأداة لا تخمّن أبداً)
+version: "2026.11"
+reviewed_by: null
+reviewed_on: null
+rules:
+  - id: GUARD-001
+    check: field_unusable
+    severity: warning
+    impact: needs_review
+    title_en: Value could not be verified
+    title_ar: تعذّر التحقق من القيمة
+    message_en: '{field_label}: {note}. A person must read this value from the document.'
+    message_ar: '{field_label_ar}: {note_ar}. يجب على شخص قراءة هذه القيمة من المستند.'
+    citation: null
+
+  - id: GUARD-002
+    check: visual_source
+    severity: warning
+    impact: needs_review
+    title_en: Photo or scan - confirm by eye
+    title_ar: صورة أو مستند ممسوح ضوئياً - يرجى التأكيد بالنظر
+    message_en: This file has no text layer, so values cannot be machine-verified. Photos and scans are never auto-approved.
+    message_ar: لا يحتوي هذا الملف على طبقة نصية، لذا لا يمكن التحقق من القيم آلياً. لا تتم الموافقة التلقائية على الصور والمستندات الممسوحة ضوئياً أبداً.
+    citation: null
+
+  - id: GUARD-003
+    check: never
+    severity: warning
+    impact: needs_review
+    title_en: Extraction failed
+    title_ar: فشل استخراج البيانات
+    message_en: '{found}'
+    message_ar: 'تعذّر استخراج البيانات من هذا الملف: {found}'
+    citation: null
+
+  - id: GUARD-004
+    check: never
+    severity: error
+    impact: input_vat_at_risk
+    title_en: Duplicate invoice in this batch
+    title_ar: فاتورة مكررة في هذه الدفعة
+    message_en: 'Same supplier TRN and invoice number as {found}. Claiming both would recover the same VAT twice.'
+    message_ar: 'نفس الرقم الضريبي للمورد ورقم الفاتورة كما في {found}. المطالبة بكليهما تعني استرداد الضريبة نفسها مرتين.'
+    citation: Federal Decree-Law No. 8 of 2017, Art. 55

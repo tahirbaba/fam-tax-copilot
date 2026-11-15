@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="head-row">
+  <div>
+    <h1>{{ b.context.client_name or t.invoices }}</h1>
+    <p class="muted">{% if b.context.client_trn %}TRN {{ b.context.client_trn }} · {% endif %}{{ b.created_at[:16].replace('T', ' ') }} UTC · #{{ b.batch_id }}</p>
+  </div>
+  <div class="dl">
+    <a class="btn primary" href="/batch/{{ b.batch_id }}/report?lang={{ lang }}" target="_blank">{{ t.client_report }}</a>
+    <a class="btn" href="/batch/{{ b.batch_id }}/excel">{{ t.excel }}</a>
+    <a class="btn" href="/batch/{{ b.batch_id }}/zoho.csv">Zoho CSV</a>
+    <a class="btn ghost" href="/batch/{{ b.batch_id }}/json">JSON</a>
+  </div>
+</div>
+
+<section class="tiles">
+  <div class="tile"><div class="n">{{ s.total }}</div><div class="l">{{ t.invoices }}</div></div>
+  <div class="tile"><div class="n green">{{ s.green }}</div><div class="l">{{ t.green }}</div></div>
+  <div class="tile"><div class="n amber">{{ s.amber }}</div><div class="l">{{ t.amber }}</div></div>
+  <div class="tile"><div class="n red">{{ s.red }}</div><div class="l">{{ t.red }}</div></div>
+  <div class="tile wide"><div class="n red">{{ t.aed }} {{ s.vat_at_risk_aed|money }}</div><div class="l">{{ t.vat_at_risk }} · {{ t.vat_reviewed }} {{ t.aed }} {{ s.vat_reviewed_aed|money }}</div></div>
+  <div class="tile wide"><div class="n">{{ s.einvoice_ready_pct }}%</div><div class="l">{{ t.einvoice_ready }} ({{ s.einvoice_ready }}/{{ s.total }})</div>
+    <div class="bar"><span style="width:{{ s.einvoice_ready_pct }}%"></span></div></div>
+</section>
+
+<section class="card flush">
+<div class="table-scroll">
+<table class="list">
+<thead><tr>
+  <th>{{ t.status }}</th><th>{{ t.supplier }}</th><th>{{ t.invoice_no }}</th><th class="hide-sm">{{ t.date }}</th>
+  <th class="num">{{ t.vat }}</th><th>{{ t.issues }}</th><th class="hide-sm">{{ t.einvoice }}</th>
+</tr></thead>
+<tbody>
+{% for r in b.results %}
+<tr class="clickable" onclick="location.href='/batch/{{ b.batch_id }}/invoice/{{ loop.index0 }}'">
+  <td><span class="pill {{ r.status.value }}">{{ t['status_' ~ r.status.value] }}</span></td>
+  <td><a href="/batch/{{ b.batch_id }}/invoice/{{ loop.index0 }}">{{ r.invoice.supplier_name or r.file_name }}</a>
+      <div class="muted small">{{ r.file_name }}</div></td>
+  <td>{{ r.invoice.invoice_number or '—' }}</td>
+  <td class="hide-sm date">{{ r.invoice.issue_date or "—" }}</td>
+  <td class="num">{{ r.invoice.vat_amount|money }}{% if r.invoice.currency and r.invoice.currency != 'AED' %} <span class="muted">{{ r.invoice.currency }}</span>{% endif %}</td>
+  <td class="issues">
+    {% for f in r.findings if f.severity.value != 'info' and f.impact.value != 'einvoice_gap' %}
+      <div>{{ f.title_ar if lang == 'ar' else f.title_en }}</div>
+    {% else %}<span class="muted">—</span>{% endfor %}
+  </td>
+  <td class="hide-sm">{% if r.einvoice_ready %}<span class="tag ok">{{ t.ready }}</span>{% else %}<span class="tag">{{ t.not_ready }}</span>{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</section>
+
+{% if s.top_gaps %}
+<section class="card">
+  <h2>{{ t.top_gaps }}</h2>
+  <ul class="plain">{% for g in s.top_gaps %}<li><strong>{{ g.count }}×</strong> {{ g.title_ar if lang == 'ar' else g.title_en }}</li>{% endfor %}</ul>
+</section>
+{% endif %}
+{% set srcs = b.results|map(attribute='extraction_source')|unique|list %}
+<p class="muted small">{{ t.source }}: {{ srcs|join(', ') }}{% if 'seed' in srcs|join(',') %} — {{ t.source_seed }}{% endif %}</p>
+{% endblock %}

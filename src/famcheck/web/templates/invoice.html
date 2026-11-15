@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block content %}
+<p><a href="/batch/{{ b.batch_id }}">← {{ t.back }}</a>
+  <span class="pager">
+    {% if prev_idx is not none %}<a href="/batch/{{ b.batch_id }}/invoice/{{ prev_idx }}">‹</a>{% endif %}
+    {{ idx + 1 }} / {{ b.results|length }}
+    {% if next_idx is not none %}<a href="/batch/{{ b.batch_id }}/invoice/{{ next_idx }}">›</a>{% endif %}
+  </span>
+</p>
+<div class="head-row">
+  <div>
+    <h1>{{ r.invoice.supplier_name or r.file_name }}</h1>
+    <p class="muted">{{ r.file_name }} · {{ r.kind }} · {{ r.language }} · {{ t.source }}: {{ r.extraction_source }}
+      {% if r.full_invoice_required is not none %} · {{ t.full_invoice if r.full_invoice_required else t.simplified_ok }}{% endif %}</p>
+  </div>
+  <span class="pill big {{ r.status.value }}">{{ t['status_' ~ r.status.value] }}</span>
+</div>
+
+<div class="split">
+  <div>
+    <section class="card">
+      <h2>{{ t.findings }}</h2>
+      {% for f in r.findings %}
+        <div class="finding {{ f.severity.value }} {{ f.impact.value }}">
+          <div class="f-head"><code>{{ f.rule_id }}</code> <strong>{{ f.title_ar if lang == 'ar' else f.title_en }}</strong></div>
+          <div>{{ f.message_ar if lang == 'ar' else f.message_en }}</div>
+          {% if f.citation %}<div class="muted small">{{ t.citation }}: {{ f.citation }}</div>{% endif %}
+        </div>
+      {% else %}
+        <p class="ok-msg">✓ {{ t.no_findings }}</p>
+      {% endfor %}
+    </section>
+
+    <section class="card flush">
+      <h2 class="pad">{{ t.fields }}</h2>
+      <div class="table-scroll">
+      <table class="fields">
+        <thead><tr><th>{{ t.field }}</th><th>{{ t.value }}</th><th>{{ t.check }}</th><th>{{ t.evidence }}</th></tr></thead>
+        <tbody>
+        {% for name, cf in r.fields.items() %}
+          <tr class="fs-{{ cf.status.value }}">
+            <td>{{ field_label(name, lang) }}</td>
+            <td dir="auto">{{ cf.raw or '—' }}</td>
+            <td><span class="fs">{{ t['fs_' ~ cf.status.value] }}</span>{% if cf.note and cf.status.value != 'absent' %}<div class="muted small">{{ cf.note }}</div>{% endif %}</td>
+            <td dir="auto" class="ev">{{ cf.evidence if cf.raw else '' }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    {% if r.line_fields %}
+    <section class="card flush">
+      <h2 class="pad">{{ t.line_items }}</h2>
+      <div class="table-scroll">
+      <table class="fields">
+        <thead><tr><th>#</th><th>{{ t.description }}</th><th class="num">{{ t.quantity }}</th><th class="num">{{ t.unit_price }}</th><th class="num">{{ t.net_amount }}</th><th class="num">{{ t.vat_rate }}</th><th class="num">{{ t.vat_amount }}</th></tr></thead>
+        <tbody>
+        {% for row in r.line_fields %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            {% for n in ['description', 'quantity', 'unit_price', 'net_amount', 'vat_rate', 'vat_amount'] %}
+              {% set cf = row[n] %}
+              <td dir="auto" class="{{ 'num' if n != 'description' }} fs-{{ cf.status.value }}" title="{{ t['fs_' ~ cf.status.value] }}">{{ cf.raw or '—' }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      </div>
+    </section>
+    {% endif %}
+  </div>
+
+  <aside class="card doc">
+    {% if r.file_name.lower().endswith('.pdf') %}
+      <iframe src="/batch/{{ b.batch_id }}/file/{{ idx }}#view=FitH" title="{{ r.file_name }}"></iframe>
+    {% elif r.kind != 'unsupported' %}
+      <img src="/batch/{{ b.batch_id }}/file/{{ idx }}" alt="{{ r.file_name }}">
+    {% endif %}
+  </aside>
+</div>
+{% endblock %}
