@@ -27,6 +27,8 @@ const OVERLAY = `
       padding:12px 24px;border-radius:12px;text-align:center;box-shadow:0 8px 30px rgba(0,0,0,.35);
       border-bottom:3px solid ${GOLD};opacity:0;transition:opacity .35s;direction:ltr;pointer-events:none}
     #__cap.on{opacity:1}
+    #__tag{position:fixed;right:14px;bottom:8px;z-index:2147483646;font:600 12px/1 "Segoe UI","DejaVu Sans",sans-serif;
+      color:#fff;background:rgba(8,20,32,.6);padding:5px 9px;border-radius:6px;pointer-events:none;direction:ltr}
     #__cur{position:fixed;left:0;top:0;width:26px;height:26px;z-index:2147483647;pointer-events:none;
       transform:translate(-3px,-2px);transition:transform .05s;filter:drop-shadow(0 2px 3px rgba(0,0,0,.45))}
     .__ripple{position:fixed;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;z-index:2147483646;
@@ -38,6 +40,8 @@ const OVERLAY = `
   \`;
   document.documentElement.appendChild(css);
   const cap = document.createElement('div'); cap.id='__cap'; document.documentElement.appendChild(cap);
+  const tag = document.createElement('div'); tag.id='__tag'; tag.textContent='Independent concept · fictitious sample data';
+  document.documentElement.appendChild(tag);
   const cur = document.createElementNS('http://www.w3.org/2000/svg','svg');
   cur.id='__cur'; cur.setAttribute('viewBox','0 0 24 24');
   cur.innerHTML='<path d="M3 2l7 19 2.6-7.4L20 11z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/>';
@@ -77,7 +81,7 @@ function card(inner, { dark = true } = {}) {
     background:${dark ? `radial-gradient(1200px 600px at 20% 0%,#145a85 0%,${NAVY} 45%,#06263a 100%)` : "#f4f6f9"};
     color:${dark ? "#fff" : "#14202e"}}
   .wrap{width:1060px;padding-bottom:70px}
-  .brand{display:inline-block;background:${GOLD};color:#0b2233;font-weight:800;letter-spacing:.06em;padding:6px 14px;border-radius:8px;font-size:20px}
+  .brand{display:inline-block;background:${GOLD};color:#0b2233;font-weight:700;letter-spacing:.02em;padding:6px 14px;border-radius:8px;font-size:18px}
   h1{font-size:58px;line-height:1.1;margin:22px 0 14px;font-weight:800}
   h2{font-size:34px;margin:0 0 26px;font-weight:700}
   p.lead{font-size:24px;opacity:.88;margin:0 0 10px;line-height:1.45}
@@ -99,12 +103,12 @@ function card(inner, { dark = true } = {}) {
 }
 
 const TITLE = card(`
-  <span class="brand">FAM</span>
+  <span class="brand">Independent concept for FAM Advisory</span>
   <h1>FAM Invoice Checker</h1>
   <p class="lead">AI-powered UAE VAT invoice compliance &amp; e-invoicing readiness</p>
   <p class="ar">التحقق من الفواتير الضريبية والجاهزية للفوترة الإلكترونية</p>
   <div class="rule"></div>
-  <p class="lead muted">A proof of concept built for FAM Advisory, Dubai${PRESENTER ? ` · by ${PRESENTER}` : ""}</p>`);
+  <p class="lead muted">Proof of concept · not affiliated with or endorsed by FAM Advisory · fictitious sample data${PRESENTER ? `<br>by ${PRESENTER}` : ""}</p>`);
 
 const PROBLEM = card(`
   <h2>The problem</h2>
@@ -132,7 +136,7 @@ const VALUE = card(`
   </div>`);
 
 const OUTRO = card(`
-  <span class="brand">FAM</span>
+  <span class="brand">Independent concept for FAM Advisory</span>
   <h1>Ready for a 2-week pilot</h1>
   <p class="lead">1 · Tax team signs off the rule citations</p>
   <p class="lead">2 · Run on 50 anonymised real invoices and publish measured accuracy</p>
@@ -196,7 +200,7 @@ const OUTRO = card(`
 
   // 1. Title
   await showCard(TITLE);
-  await say("FAM Invoice Checker — a proof of concept built for FAM Advisory.", 4200);
+  await say("FAM Invoice Checker — an independent proof of concept, designed around FAM Advisory's workflow.", 4600);
   await say("It checks supplier invoices for UAE VAT compliance and 2027 e-invoicing readiness.", 4200);
 
   // 2. Problem
