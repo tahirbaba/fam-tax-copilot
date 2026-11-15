@@ -1,0 +1,134 @@
+{
+  "file_name": "inv14_en_misread_guardrail.pdf",
+  "source": "seed:simulated-error",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE",
+        "evidence": "TAX INVOICE"
+      },
+      "invoice_number": {
+        "value": "GFP-6603",
+        "evidence": "Invoice No: GFP-6603"
+      },
+      "issue_date": {
+        "value": "27/10/2026",
+        "evidence": "Invoice Date: 27/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency: AED"
+      },
+      "supplier_name": {
+        "value": "Golden Fork Packaging LLC",
+        "evidence": "Golden Fork Packaging LLC"
+      },
+      "supplier_address": {
+        "value": "Warehouse 2, Jebel Ali Industrial Area 1, Dubai, UAE",
+        "evidence": "Warehouse 2, Jebel Ali Industrial Area 1, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "100778899001133",
+        "evidence": "TRN: 100778899001133"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Takeaway containers (carton of 500)",
+            "evidence": "Takeaway containers (carton of 500)"
+          },
+          "quantity": {
+            "value": "12",
+            "evidence": "12"
+          },
+          "unit_price": {
+            "value": "165.00",
+            "evidence": "165.00"
+          },
+          "net_amount": {
+            "value": "1,980.00",
+            "evidence": "1,980.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "99.00",
+            "evidence": "99.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Paper bags (carton of 1000)",
+            "evidence": "Paper bags (carton of 1000)"
+          },
+          "quantity": {
+            "value": "8",
+            "evidence": "8"
+          },
+          "unit_price": {
+            "value": "120.00",
+            "evidence": "120.00"
+          },
+          "net_amount": {
+            "value": "960.00",
+            "evidence": "960.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "48.00",
+            "evidence": "48.00"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "2,940.00",
+        "evidence": "Subtotal 2,940.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "VAT 5%"
+      },
+      "vat_amount": {
+        "value": "147.00",
+        "evidence": "147.00"
+      },
+      "total_amount": {
+        "value": "3,087.00",
+        "evidence": "Total Amount Due 3,087.00"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

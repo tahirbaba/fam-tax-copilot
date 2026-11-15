@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ t.rules_title }}</h1>
+<p class="muted">Rules are plain YAML files in <code>src/famcheck/rules/packs/</code> — the tax team can review and edit them without touching code.</p>
+{% for p in packs %}
+<section class="card flush">
+  <h2 class="pad">{{ p.title_ar if lang == 'ar' else p.title_en }}
+    <span class="muted small">v{{ p.version }} · {% if p.reviewed_by %}reviewed by {{ p.reviewed_by }}{% else %}<span class="tag">{{ t.unreviewed }}</span>{% endif %}</span></h2>
+  <div class="table-scroll">
+  <table class="list">
+    <thead><tr><th>ID</th><th>{{ t.rule }}</th><th class="hide-sm">Severity</th><th>{{ t.citation }}</th></tr></thead>
+    <tbody>
+    {% for r in p.rules %}
+      <tr><td><code>{{ r.id }}</code></td><td>{{ r.title_ar if lang == 'ar' else r.title_en }}</td><td class="hide-sm">{{ r.severity.value }}</td><td class="muted small">{{ r.citation or '—' }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

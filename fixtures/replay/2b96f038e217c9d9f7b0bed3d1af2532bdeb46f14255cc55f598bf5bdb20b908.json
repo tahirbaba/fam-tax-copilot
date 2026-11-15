@@ -1,0 +1,160 @@
+{
+  "file_name": "inv09_en_duplicate.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE",
+        "evidence": "TAX INVOICE"
+      },
+      "invoice_number": {
+        "value": "GF-2026-0412",
+        "evidence": "Invoice No: GF-2026-0412"
+      },
+      "issue_date": {
+        "value": "12/10/2026",
+        "evidence": "Invoice Date: 12/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency: AED"
+      },
+      "supplier_name": {
+        "value": "Gulf Fresh Produce Trading LLC",
+        "evidence": "Gulf Fresh Produce Trading LLC"
+      },
+      "supplier_address": {
+        "value": "Warehouse 7, Al Aweer Central Market, Dubai, UAE",
+        "evidence": "Warehouse 7, Al Aweer Central Market, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "100234567890003",
+        "evidence": "TRN: 100234567890003"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Tomatoes (kg)",
+            "evidence": "Tomatoes (kg)"
+          },
+          "quantity": {
+            "value": "120",
+            "evidence": "120"
+          },
+          "unit_price": {
+            "value": "4.50",
+            "evidence": "4.50"
+          },
+          "net_amount": {
+            "value": "540.00",
+            "evidence": "540.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "27.00",
+            "evidence": "27.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Red onions (kg)",
+            "evidence": "Red onions (kg)"
+          },
+          "quantity": {
+            "value": "200",
+            "evidence": "200"
+          },
+          "unit_price": {
+            "value": "2.25",
+            "evidence": "2.25"
+          },
+          "net_amount": {
+            "value": "450.00",
+            "evidence": "450.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "22.50",
+            "evidence": "22.50"
+          }
+        },
+        {
+          "description": {
+            "value": "Fresh herbs bundle",
+            "evidence": "Fresh herbs bundle"
+          },
+          "quantity": {
+            "value": "30",
+            "evidence": "30"
+          },
+          "unit_price": {
+            "value": "6.00",
+            "evidence": "6.00"
+          },
+          "net_amount": {
+            "value": "180.00",
+            "evidence": "180.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "9.00",
+            "evidence": "9.00"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "1,170.00",
+        "evidence": "Subtotal 1,170.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "VAT 5%"
+      },
+      "vat_amount": {
+        "value": "58.50",
+        "evidence": "58.50"
+      },
+      "total_amount": {
+        "value": "1,228.50",
+        "evidence": "Total Amount Due 1,228.50"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

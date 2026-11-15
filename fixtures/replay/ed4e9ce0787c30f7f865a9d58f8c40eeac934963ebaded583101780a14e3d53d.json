@@ -1,0 +1,134 @@
+{
+  "file_name": "inv04_en_vat_wrong.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE",
+        "evidence": "TAX INVOICE"
+      },
+      "invoice_number": {
+        "value": "PAW-88213",
+        "evidence": "Invoice No: PAW-88213"
+      },
+      "issue_date": {
+        "value": "03/10/2026",
+        "evidence": "Invoice Date: 03/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency: AED"
+      },
+      "supplier_name": {
+        "value": "Pure Aqua Water Supplies LLC",
+        "evidence": "Pure Aqua Water Supplies LLC"
+      },
+      "supplier_address": {
+        "value": "Unit 4, Dubai Investments Park 1, Dubai, UAE",
+        "evidence": "Unit 4, Dubai Investments Park 1, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "100678901234567",
+        "evidence": "TRN: 100678901234567"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "5 gallon water bottles",
+            "evidence": "5 gallon water bottles"
+          },
+          "quantity": {
+            "value": "300",
+            "evidence": "300"
+          },
+          "unit_price": {
+            "value": "7.00",
+            "evidence": "7.00"
+          },
+          "net_amount": {
+            "value": "2,100.00",
+            "evidence": "2,100.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "105.00",
+            "evidence": "105.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Water dispenser rental (monthly)",
+            "evidence": "Water dispenser rental (monthly)"
+          },
+          "quantity": {
+            "value": "4",
+            "evidence": "4"
+          },
+          "unit_price": {
+            "value": "75.00",
+            "evidence": "75.00"
+          },
+          "net_amount": {
+            "value": "300.00",
+            "evidence": "300.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "15.00",
+            "evidence": "15.00"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "2,400.00",
+        "evidence": "Subtotal 2,400.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "VAT 5%"
+      },
+      "vat_amount": {
+        "value": "125.00",
+        "evidence": "125.00"
+      },
+      "total_amount": {
+        "value": "2,525.00",
+        "evidence": "Total Amount Due 2,525.00"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

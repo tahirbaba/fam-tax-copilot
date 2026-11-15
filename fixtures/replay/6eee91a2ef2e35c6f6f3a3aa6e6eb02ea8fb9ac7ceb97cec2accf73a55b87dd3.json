@@ -1,0 +1,134 @@
+{
+  "file_name": "inv02_ar_valid.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "فاتورة ضريبية",
+        "evidence": "فاتورة ضريبية"
+      },
+      "invoice_number": {
+        "value": "NK-2026-077",
+        "evidence": "رقم الفاتورة: NK-2026-077"
+      },
+      "issue_date": {
+        "value": "08/10/2026",
+        "evidence": "تاريخ الفاتورة: 08/10/2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "درهم",
+        "evidence": "العملة: درهم"
+      },
+      "supplier_name": {
+        "value": "شركة النخيل للتجارة العامة ذ.م.م",
+        "evidence": "شركة النخيل للتجارة العامة ذ.م.م"
+      },
+      "supplier_address": {
+        "value": "ديرة، شارع المكتوم، دبي، الإمارات العربية المتحدة",
+        "evidence": "ديرة، شارع المكتوم، دبي، الإمارات العربية المتحدة"
+      },
+      "supplier_trn": {
+        "value": "١٠٠٤٥٦٧٨٩٠١٢٣٤٥",
+        "evidence": "الرقم الضريبي: ١٠٠٤٥٦٧٨٩٠١٢٣٤٥"
+      },
+      "customer_name": {
+        "value": "مطاعم النور ذ.م.م",
+        "evidence": "مطاعم النور ذ.م.م"
+      },
+      "customer_address": {
+        "value": "محل 12، شارع الوصل، جميرا 1، دبي، الإمارات العربية المتحدة",
+        "evidence": "محل 12، شارع الوصل، جميرا 1، دبي، الإمارات العربية المتحدة"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "الرقم الضريبي: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "أرز بسمتي (كيس 25 كجم)",
+            "evidence": "أرز بسمتي (كيس 25 كجم)"
+          },
+          "quantity": {
+            "value": "10",
+            "evidence": "10"
+          },
+          "unit_price": {
+            "value": "145.00",
+            "evidence": "145.00"
+          },
+          "net_amount": {
+            "value": "1,450.00",
+            "evidence": "1,450.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "72.50",
+            "evidence": "72.50"
+          }
+        },
+        {
+          "description": {
+            "value": "زيت دوار الشمس (20 لتر)",
+            "evidence": "زيت دوار الشمس (20 لتر)"
+          },
+          "quantity": {
+            "value": "6",
+            "evidence": "6"
+          },
+          "unit_price": {
+            "value": "210.00",
+            "evidence": "210.00"
+          },
+          "net_amount": {
+            "value": "1,260.00",
+            "evidence": "1,260.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "63.00",
+            "evidence": "63.00"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "2,710.00",
+        "evidence": "المجموع الفرعي 2,710.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "ضريبة القيمة المضافة 5%"
+      },
+      "vat_amount": {
+        "value": "135.50",
+        "evidence": "135.50"
+      },
+      "total_amount": {
+        "value": "2,845.50",
+        "evidence": "المبلغ الإجمالي المستحق 2,845.50"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

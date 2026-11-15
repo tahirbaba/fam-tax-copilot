@@ -1,0 +1,140 @@
+{
+  "file": "inv11_en_wrong_customer.pdf",
+  "sha256": "8af12979d4d7712e62c9523d1a2aac1dd387287b98183daf716240e26194d8a8",
+  "note": "Addressed to a different legal entity (different TRN).",
+  "expected": {
+    "status": "red",
+    "findings": [
+      "VAT-015"
+    ],
+    "einvoice_ready": false
+  },
+  "truth": {
+    "document_title": {
+      "value": "TAX INVOICE",
+      "evidence": "TAX INVOICE"
+    },
+    "invoice_number": {
+      "value": "PLS-40918",
+      "evidence": "Invoice No: PLS-40918"
+    },
+    "issue_date": {
+      "value": "18/10/2026",
+      "evidence": "Invoice Date: 18/10/2026"
+    },
+    "supply_date": {
+      "value": null,
+      "evidence": null
+    },
+    "currency": {
+      "value": "AED",
+      "evidence": "Currency: AED"
+    },
+    "supplier_name": {
+      "value": "Prime Linen Supplies LLC",
+      "evidence": "Prime Linen Supplies LLC"
+    },
+    "supplier_address": {
+      "value": "Warehouse 15, Al Qusais Industrial Area 2, Dubai, UAE",
+      "evidence": "Warehouse 15, Al Qusais Industrial Area 2, Dubai, UAE"
+    },
+    "supplier_trn": {
+      "value": "100334455667788",
+      "evidence": "TRN: 100334455667788"
+    },
+    "customer_name": {
+      "value": "Al Noor Catering Services LLC",
+      "evidence": "Al Noor Catering Services LLC"
+    },
+    "customer_address": {
+      "value": "Office 1102, Business Bay, Dubai, UAE",
+      "evidence": "Office 1102, Business Bay, Dubai, UAE"
+    },
+    "customer_trn": {
+      "value": "100998877665544",
+      "evidence": "TRN: 100998877665544"
+    },
+    "line_items": [
+      {
+        "description": {
+          "value": "Table linen rental (monthly)",
+          "evidence": "Table linen rental (monthly)"
+        },
+        "quantity": {
+          "value": "1",
+          "evidence": "1"
+        },
+        "unit_price": {
+          "value": "4,200.00",
+          "evidence": "4,200.00"
+        },
+        "net_amount": {
+          "value": "4,200.00",
+          "evidence": "4,200.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "210.00",
+          "evidence": "210.00"
+        }
+      },
+      {
+        "description": {
+          "value": "Chef uniforms",
+          "evidence": "Chef uniforms"
+        },
+        "quantity": {
+          "value": "25",
+          "evidence": "25"
+        },
+        "unit_price": {
+          "value": "95.00",
+          "evidence": "95.00"
+        },
+        "net_amount": {
+          "value": "2,375.00",
+          "evidence": "2,375.00"
+        },
+        "vat_rate": {
+          "value": "5%",
+          "evidence": "5%"
+        },
+        "vat_amount": {
+          "value": "118.75",
+          "evidence": "118.75"
+        }
+      }
+    ],
+    "subtotal": {
+      "value": "6,575.00",
+      "evidence": "Subtotal 6,575.00"
+    },
+    "discount": {
+      "value": null,
+      "evidence": null
+    },
+    "vat_rate": {
+      "value": "5%",
+      "evidence": "VAT 5%"
+    },
+    "vat_amount": {
+      "value": "328.75",
+      "evidence": "328.75"
+    },
+    "total_amount": {
+      "value": "6,903.75",
+      "evidence": "Total Amount Due 6,903.75"
+    },
+    "vat_amount_aed": {
+      "value": null,
+      "evidence": null
+    },
+    "exchange_rate": {
+      "value": null,
+      "evidence": null
+    }
+  }
+}

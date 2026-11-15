@@ -1,0 +1,160 @@
+{
+  "file_name": "inv03_bi_valid.pdf",
+  "source": "seed",
+  "passes": [
+    {
+      "document_title": {
+        "value": "TAX INVOICE / فاتورة ضريبية",
+        "evidence": "TAX INVOICE / فاتورة ضريبية"
+      },
+      "invoice_number": {
+        "value": "EKE/INV/2026/1189",
+        "evidence": "Invoice No / رقم الفاتورة: EKE/INV/2026/1189"
+      },
+      "issue_date": {
+        "value": "15 Oct 2026",
+        "evidence": "Date / التاريخ: 15 Oct 2026"
+      },
+      "supply_date": {
+        "value": null,
+        "evidence": null
+      },
+      "currency": {
+        "value": "AED",
+        "evidence": "Currency / العملة: AED"
+      },
+      "supplier_name": {
+        "value": "Emirates Kitchen Equipment LLC",
+        "evidence": "Emirates Kitchen Equipment LLC"
+      },
+      "supplier_address": {
+        "value": "Plot 22, Al Quoz Industrial Area 3, Dubai, UAE",
+        "evidence": "Plot 22, Al Quoz Industrial Area 3, Dubai, UAE"
+      },
+      "supplier_trn": {
+        "value": "100567890123456",
+        "evidence": "TRN / الرقم الضريبي: 100567890123456"
+      },
+      "customer_name": {
+        "value": "Al Noor Restaurants LLC",
+        "evidence": "Al Noor Restaurants LLC"
+      },
+      "customer_address": {
+        "value": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
+        "evidence": "Shop 12, Al Wasl Road, Jumeirah 1, Dubai, UAE"
+      },
+      "customer_trn": {
+        "value": "100345678900003",
+        "evidence": "TRN / الرقم الضريبي: 100345678900003"
+      },
+      "line_items": [
+        {
+          "description": {
+            "value": "Commercial combi oven",
+            "evidence": "Commercial combi oven"
+          },
+          "quantity": {
+            "value": "1",
+            "evidence": "1"
+          },
+          "unit_price": {
+            "value": "18,500.00",
+            "evidence": "18,500.00"
+          },
+          "net_amount": {
+            "value": "18,500.00",
+            "evidence": "18,500.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "925.00",
+            "evidence": "925.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Stainless steel prep table",
+            "evidence": "Stainless steel prep table"
+          },
+          "quantity": {
+            "value": "2",
+            "evidence": "2"
+          },
+          "unit_price": {
+            "value": "2,350.00",
+            "evidence": "2,350.00"
+          },
+          "net_amount": {
+            "value": "4,700.00",
+            "evidence": "4,700.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "235.00",
+            "evidence": "235.00"
+          }
+        },
+        {
+          "description": {
+            "value": "Installation service",
+            "evidence": "Installation service"
+          },
+          "quantity": {
+            "value": "1",
+            "evidence": "1"
+          },
+          "unit_price": {
+            "value": "1,200.00",
+            "evidence": "1,200.00"
+          },
+          "net_amount": {
+            "value": "1,200.00",
+            "evidence": "1,200.00"
+          },
+          "vat_rate": {
+            "value": "5%",
+            "evidence": "5%"
+          },
+          "vat_amount": {
+            "value": "60.00",
+            "evidence": "60.00"
+          }
+        }
+      ],
+      "subtotal": {
+        "value": "24,400.00",
+        "evidence": "Subtotal / المجموع الفرعي 24,400.00"
+      },
+      "discount": {
+        "value": null,
+        "evidence": null
+      },
+      "vat_rate": {
+        "value": "5%",
+        "evidence": "VAT / الضريبة 5%"
+      },
+      "vat_amount": {
+        "value": "1,220.00",
+        "evidence": "1,220.00"
+      },
+      "total_amount": {
+        "value": "25,620.00",
+        "evidence": "Total / الإجمالي 25,620.00"
+      },
+      "vat_amount_aed": {
+        "value": null,
+        "evidence": null
+      },
+      "exchange_rate": {
+        "value": null,
+        "evidence": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ t.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ t.report_title }}</title>
+<style>
+:root{--ink:#14202e;--muted:#5b6878;--line:#dde3ea;--brand:#0b3d5c;--accent:#b8873b;--green:#1f8a52;--amber:#b7791f;--red:#c0392b;--bg:#ffffff;--soft:#f5f7fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 "Segoe UI","Noto Sans","Noto Sans Arabic","DejaVu Sans",Tahoma,sans-serif}
+.page{max-width:900px;margin:0 auto;padding:40px 32px}
+header{border-bottom:3px solid var(--brand);padding-bottom:18px;margin-bottom:24px}
+.brand{color:var(--accent);font-weight:700;letter-spacing:.08em;font-size:12px;text-transform:uppercase}
+h1{margin:6px 0 4px;color:var(--brand);font-size:26px;line-height:1.25}
+h2{color:var(--brand);font-size:18px;margin:32px 0 10px}
+.meta{color:var(--muted)}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:var(--soft);border-radius:10px;padding:14px 16px}
+.tile .n{font-size:26px;font-weight:700}
+.tile .l{color:var(--muted);font-size:12px}
+.n.green{color:var(--green)}.n.amber{color:var(--amber)}.n.red{color:var(--red)}
+.score{display:flex;align-items:center;gap:18px;background:var(--soft);border-radius:10px;padding:16px 18px;margin-top:12px}
+.bar{flex:1;height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--brand)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:600}
+td.num{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.date{white-space:nowrap}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill.green{background:#d7f2e3;color:var(--green)}.pill.amber{background:#fff1cc;color:var(--amber)}.pill.red{background:#fadbd8;color:var(--red)}
+ul{padding-inline-start:20px}
+.issues{color:var(--muted);font-size:13px}
+.disclaimer{margin-top:36px;padding:14px 16px;border-inline-start:4px solid var(--accent);background:var(--soft);color:var(--muted);font-size:12px}
+@media (max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)}.page{padding:24px 16px}.hide-sm{display:none}}
+@media print{.page{padding:0}h2{break-after:avoid}tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="brand">{{ t.prepared_by }}</div>
+  <h1>{{ t.report_title }}</h1>
+  <div class="meta">
+    {% if b.context.client_name %}{{ t.prepared_for }}: <strong>{{ b.context.client_name }}</strong>{% if b.context.client_trn %} · TRN {{ b.context.client_trn }}{% endif %} · {% endif %}{{ b.created_at[:10] }}
+  </div>
+</header>
+
+<h2>{{ t.summary }}</h2>
+<div class="tiles">
+  <div class="tile"><div class="n">{{ s.total }}</div><div class="l">{{ t.invoices }}</div></div>
+  <div class="tile"><div class="n green">{{ s.green }}</div><div class="l">{{ t.green }}</div></div>
+  <div class="tile"><div class="n amber">{{ s.amber }}</div><div class="l">{{ t.amber }}</div></div>
+  <div class="tile"><div class="n red">{{ s.red }}</div><div class="l">{{ t.red }}</div></div>
+</div>
+<div class="tiles" style="margin-top:12px;grid-template-columns:repeat(2,1fr)">
+  <div class="tile"><div class="n red">{{ t.aed }} {{ s.vat_at_risk_aed|money }}</div><div class="l">{{ t.vat_at_risk }}</div></div>
+  <div class="tile"><div class="n">{{ t.aed }} {{ s.vat_reviewed_aed|money }}</div><div class="l">{{ t.vat_reviewed }}</div></div>
+</div>
+<div class="score">
+  <strong>{{ t.readiness_score }}: {{ s.einvoice_ready_pct }}%</strong>
+  <div class="bar"><span style="width:{{ s.einvoice_ready_pct }}%"></span></div>
+  <span class="meta">{{ s.einvoice_ready }} / {{ s.total }}</span>
+</div>
+
+{% if s.top_gaps %}
+<h2>{{ t.top_gaps }}</h2>
+<ul>
+{% for g in s.top_gaps %}<li>{{ g.title_ar if lang == 'ar' else g.title_en }} — {{ g.count }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+<h2>{{ t.deadlines }}</h2>
+<ul>{% for d in deadlines %}<li>{{ d[lang] }}</li>{% endfor %}</ul>
+
+<h2>{{ t.invoices }}</h2>
+<table>
+<thead><tr><th>{{ t.supplier }}</th><th>{{ t.invoice_no }}</th><th class="hide-sm">{{ t.date }}</th><th class="num">{{ t.vat }}</th><th>{{ t.status }}</th><th>{{ t.issues }}</th></tr></thead>
+<tbody>
+{% for r in b.results %}
+<tr>
+  <td>{{ r.invoice.supplier_name or r.file_name }}</td>
+  <td>{{ r.invoice.invoice_number or '—' }}</td>
+  <td class="hide-sm date">{{ r.invoice.issue_date or "—" }}</td>
+  <td class="num">{{ r.invoice.vat_amount|money }}{% if r.invoice.currency and r.invoice.currency != 'AED' %} {{ r.invoice.currency }}{% endif %}</td>
+  <td><span class="pill {{ r.status.value }}">{{ t['status_' ~ r.status.value] }}</span></td>
+  <td class="issues">
+    {% for f in r.findings if f.severity.value != 'info' and f.impact.value != 'einvoice_gap' %}{{ f.title_ar if lang == 'ar' else f.title_en }}{% if not loop.last %}; {% endif %}{% endfor %}
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>{{ t.next_steps }}</h2>
+<ol><li>{{ t.step1 }}</li><li>{{ t.step2 }}</li><li>{{ t.step3 }}</li></ol>
+
+<div class="disclaimer">{{ t.disclaimer }}</div>
+</div>
+</body>
+</html>
