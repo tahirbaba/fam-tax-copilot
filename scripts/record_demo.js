@@ -33,7 +33,8 @@ const OVERLAY = `
       border:3px solid ${GOLD};pointer-events:none;animation:__rip .6s ease-out forwards}
     @keyframes __rip{from{transform:scale(.3);opacity:1}to{transform:scale(1.6);opacity:0}}
     .__hl{position:fixed;z-index:2147483645;pointer-events:none;border:3px solid ${GOLD};border-radius:12px;
-      box-shadow:0 0 0 9999px rgba(8,20,32,.30),0 0 22px rgba(184,135,59,.9);transition:all .35s ease}
+      box-shadow:0 0 0 9999px rgba(8,20,32,.30),0 0 22px rgba(184,135,59,.9);animation:__hlin .3s ease}
+    @keyframes __hlin{from{opacity:0}to{opacity:1}}
   \`;
   document.documentElement.appendChild(css);
   const cap = document.createElement('div'); cap.id='__cap'; document.documentElement.appendChild(cap);
@@ -50,14 +51,21 @@ const OVERLAY = `
   window.__cap = (t) => { cap.textContent = t || ''; cap.classList.toggle('on', !!t); };
   window.__hl = (sel, pad=8) => {
     document.querySelectorAll('.__hl').forEach(x=>x.remove());
+    window.__hlEl = null;
     if (!sel) return;
     const el = typeof sel === 'string' ? document.querySelector(sel) : sel;
     if (!el) return;
-    const r = el.getBoundingClientRect();
     const h = document.createElement('div'); h.className='__hl';
-    h.style.left=(r.left-pad)+'px'; h.style.top=(r.top-pad)+'px';
-    h.style.width=(r.width+pad*2)+'px'; h.style.height=(r.height+pad*2)+'px';
     document.documentElement.appendChild(h);
+    window.__hlEl = el;
+    const place = () => {
+      if (window.__hlEl !== el || !h.isConnected) return;
+      const r = el.getBoundingClientRect();
+      h.style.left=(r.left-pad)+'px'; h.style.top=(r.top-pad)+'px';
+      h.style.width=(r.width+pad*2)+'px'; h.style.height=(r.height+pad*2)+'px';
+      requestAnimationFrame(place);
+    };
+    place();
   };
 })();`;
 
@@ -213,7 +221,7 @@ const OUTRO = card(`
   await say("In seconds, every invoice is checked: 4 valid, 2 need review, 8 have problems.", 500);
   await hl(".tiles .tile:nth-child(1)", 6); await sleep(900);
   await page.evaluate(() => { const t = document.querySelectorAll('.tiles .tile'); const a = t[0].getBoundingClientRect(), b = t[3].getBoundingClientRect();
-    const h = document.querySelector('.__hl'); h.style.left = (a.left - 8) + 'px'; h.style.width = (b.right - a.left + 16) + 'px'; });
+    window.__hlEl = null; const h = document.querySelector('.__hl'); h.style.left = (a.left - 8) + 'px'; h.style.width = (b.right - a.left + 16) + 'px'; });
   await sleep(3200);
   await say("AED 1,998 of input VAT is at risk — found before the VAT return is filed.", 300);
   await hl(".tiles .tile.wide:nth-of-type(5)"); await moveTo(".tiles .tile.wide >> nth=0"); await sleep(3800);
