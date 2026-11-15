@@ -262,7 +262,8 @@ const OUTRO = card(`
   // 8. Photo (inv12)
   await go(batchUrl + "/invoice/11?lang=en");
   await say("Phone photos can't be machine-verified, so they are never auto-approved.", 300);
-  await hl(".finding:nth-of-type(1)"); await moveTo(".doc-view img"); await sleep(3800); await hl(null);
+  await page.evaluate(() => window.__hl([...document.querySelectorAll('.finding')].find(f => f.textContent.includes('GUARD-002'))));
+  await moveTo(".doc-view img"); await sleep(3800); await hl(null);
 
   // 9. Arabic UI
   await go(batchUrl + "?lang=en");
