@@ -8,3 +8,4 @@ reports/
 uploads/
 fixtures/_build/
 .famcheck_cache/
+demo_out/

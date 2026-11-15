@@ -41,3 +41,10 @@ def test_cli_demo_and_eval(tmp_path):
     assert (tmp_path / "client_report_ar.html").exists() and (tmp_path / "invoice_review.xlsx").exists()
     res = runner.invoke(cli_app, ["eval"])
     assert res.exit_code == 0, res.output
+
+
+def test_preview_png():
+    c = TestClient(app)
+    url = c.post("/demo", follow_redirects=False).headers["location"]
+    r = c.get(url + "/preview/1.png")
+    assert r.status_code == 200 and r.content[:8] == b"\x89PNG\r\n\x1a\n"

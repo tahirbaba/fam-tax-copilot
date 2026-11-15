@@ -74,10 +74,10 @@
   </div>
 
   <aside class="card doc">
-    {% if r.file_name.lower().endswith('.pdf') %}
-      <iframe src="/batch/{{ b.batch_id }}/file/{{ idx }}#view=FitH" title="{{ r.file_name }}"></iframe>
-    {% elif r.kind != 'unsupported' %}
-      <img src="/batch/{{ b.batch_id }}/file/{{ idx }}" alt="{{ r.file_name }}">
+    {% if r.kind != 'unsupported' %}
+      <div class="doc-bar"><span class="muted small">{{ r.file_name }}</span>
+        <a class="small" href="/batch/{{ b.batch_id }}/file/{{ idx }}" target="_blank">Open original ↗</a></div>
+      <div class="doc-view"><img src="/batch/{{ b.batch_id }}/preview/{{ idx }}.png" alt="{{ r.file_name }}"></div>
     {% endif %}
   </aside>
 </div>

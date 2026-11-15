@@ -140,6 +140,31 @@ def source_file(batch_id: str, idx: int):
                         headers={"Content-Disposition": "inline"})
 
 
+@app.get("/batch/{batch_id}/preview/{idx}.png")
+def preview(batch_id: str, idx: int):
+    """Page-1 preview as PNG (works in every browser, including ones that block inline PDFs)."""
+    batch, files = _get(batch_id)
+    if not 0 <= idx < len(batch.results):
+        raise HTTPException(404)
+    p = files.get(batch.results[idx].file_name)
+    if not p or not p.exists():
+        raise HTTPException(404)
+    if p.suffix.lower() != ".pdf":
+        return FileResponse(p, media_type=SUPPORTED.get(p.suffix.lower(), "application/octet-stream"))
+    import io
+
+    import pypdfium2 as pdfium
+
+    pdf = pdfium.PdfDocument(str(p))
+    try:
+        image = pdf[0].render(scale=1.6).to_pil()
+    finally:
+        pdf.close()
+    buf = io.BytesIO()
+    image.save(buf, "PNG", optimize=True)
+    return Response(buf.getvalue(), media_type="image/png", headers={"Cache-Control": "max-age=3600"})
+
+
 @app.get("/batch/{batch_id}/report", response_class=HTMLResponse)
 def client_report(request: Request, batch_id: str):
     batch, _ = _get(batch_id)
